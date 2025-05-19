@@ -13,37 +13,48 @@ gsap.registerPlugin(ScrollTrigger);
 const Experience = () => {
 
     useGSAP(() => {
-        gsap.utils.toArray('.timeline-card').forEach((card) => {
-            gsap.from(card, {
-                xPercent: -100,
-                opacity: 0,
-                transformOrigin: 'left left',
-                duration: 1,
-                ease: 'power2.InOut',
-                scrollTrigger: {
-                    trigger: card,
-                    start: 'top 80%',
-                   
-                }
-            });
-        })
-        
-        gsap.utils.toArray('.expText').forEach((text) => {
-            gsap.from(text, {
-                xPercent: 0,
-                opacity: 0,
-                
-                duration: 1,
-                ease: 'power2.InOut',
-                scrollTrigger: {
-                    trigger: text,
-                    start: 'top 60%',
-                   
-                }
-            });
-        })
-    },[])
+  // Responsive breakpoints using gsap.matchMedia
+  const mm = gsap.matchMedia();
 
+  mm.add({
+    // For screens wider than 768px (desktop/tablet)
+    "(min-width: 769px)": () => {
+      gsap.utils.toArray('.timeline-card').forEach((card) => {
+        gsap.from(card, {
+          xPercent: -100,
+          opacity: 0,
+          transformOrigin: 'left left',
+          duration: 0.5,
+          ease: 'power2.inOut',
+          scrollTrigger: {
+            trigger: card,
+            start: 'top 80%',
+          },
+        });
+      });
+
+      gsap.utils.toArray('.expText').forEach((text) => {
+        gsap.from(text, {
+          xPercent: 0,
+          opacity: 0,
+          duration: 1,
+          ease: 'power2.inOut',
+          scrollTrigger: {
+            trigger: text,
+            start: 'top 60%',
+          },
+        });
+      });
+    },
+
+    
+    "(max-width: 768px)": () => {
+    },
+  });
+
+  //  Clean up matchMedia on unmount
+  return () => mm.revert();
+}, []);
   return (
     <section id="experience" className="w-full md:mt-20 mt-20 section-padding ">
         
@@ -68,7 +79,7 @@ const Experience = () => {
                         <div className='xl:w-4/6 '>
                             <div className=' flex flex-row items-start  '>
                                 <div className='pt-20 mr-5 relative'>
-                                    {/*timeline-logo*/}
+                                    
                                     <div className='timeline-logo'>
                                         <img src={card.imgPath} alt="logo" />
 
