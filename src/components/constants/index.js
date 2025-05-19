@@ -102,3 +102,18 @@ export const findMe=[
     link:'https://wa.me/254742192740'
 }
 ]
+export const projectLinks=[
+    {
+        name:'movies',
+        link:' https://morkym.github.io/Morris-Movies/',
+    },
+    {
+        name:'food',
+        link:'https://morrisoh-eats.netlify.app/',
+    },
+    {
+        name:'bank',
+        link:'https://vibe-bank.netlify.app/',
+    },
+   
+]

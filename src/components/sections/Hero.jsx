@@ -62,7 +62,7 @@ const Hero = () => {
                     <p  className='text-white-50 md:text-xl relative z-10 pointer-events-none justify-center '>
                         Morris Macharia here, 
                         <br /><span className='glow-purple '>A passionate software developer with a knack for building scalable and innovative digital solutions.
-                            <br /> My curiosity and commitment to continuous learning allow me to turn complex problems into clean, efficient code.</span>
+                            <br /> My curiosity and commitment to continuous learning  turns complex problems into clean,effective and efficient code.</span>
                     </p>
                     <Button  className= "md:w-80 md:h-16 w-60 h-12"
                     id="button"
